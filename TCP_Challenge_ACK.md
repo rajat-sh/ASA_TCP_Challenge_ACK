@@ -11,6 +11,7 @@ Firewall dropping RST from Client after Server's "Challenge ACK" preventing clie
 -RFC5961: https://tools.ietf.org/html/rfc5961#section-4 
 -Sample packet capture explaining such a flow:
 
+![alt text](image.jpg)
 
 
         > First ACK from the server has acknowledgement number different than SYN's sequence number.
@@ -127,3 +128,5 @@ ciscoasa(config)#
 
 **Observations**
 -While dropping the out of window RST is actually an intended behavior, it breaks the Challenge-ACK mechanism.
+-Following enhancement is open https://bst.cisco.com/bugsearch/bug/CSCwj61793?rfs=qvred
+
