@@ -7,7 +7,7 @@ Firewall dropping RST from Client after Server's "Challenge ACK" preventing clie
 **Environment**
 -Any client-server architecture where the Server is configured to mitigate "Blind Reset Attack Using the SYN Bit" and sends "Challenge-ACK"
 -As a response to client's SYN, the Server challenges by sending an ACK to confirm the loss of the previous connection and the request to start a new connection.
--This challenge ACK has acknowledgment number from previous connection and upon seeing the unexpected ACK, client sends a RST; thus tearing down TCP connection on the server also.
+-This challenge ACK has acknowledgement number from previous connection and upon seeing the unexpected ACK, client sends a RST; thus tearing down TCP connection on the server also.
 -RFC5961: https://tools.ietf.org/html/rfc5961#section-4 
 -Sample packet capture explaining such a flow:
 
