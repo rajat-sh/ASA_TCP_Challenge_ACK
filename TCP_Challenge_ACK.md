@@ -11,7 +11,7 @@ Firewall dropping RST from Client after Server's "Challenge ACK" preventing clie
 -RFC5961: https://tools.ietf.org/html/rfc5961#section-4 
 -Sample packet capture explaining such a flow:
 
-![alt text](image.jpg)
+![alt text](image.png)
 
 
         > First ACK from the server has acknowledgement number different than SYN's sequence number.
