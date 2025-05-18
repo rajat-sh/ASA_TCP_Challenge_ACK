@@ -1,15 +1,25 @@
 ### ASA/FTD Firewall dropping RST from Client after Server's Challenge-ACK
 
 **Symptom**
+
 Firewall dropping RST from Client after Server's "Challenge ACK" preventing client from establishing TCP connections to server.
 
 
 **Environment**
--Any client-server architecture where the Server is configured to mitigate "Blind Reset Attack Using the SYN Bit" and sends "Challenge-ACK"
--As a response to client's SYN, the Server challenges by sending an ACK to confirm the loss of the previous connection and the request to start a new connection.
--This challenge ACK has acknowledgment number from previous connection and upon seeing the unexpected ACK, client sends a RST; thus tearing down TCP connection on the server also.
--RFC5961: https://tools.ietf.org/html/rfc5961#section-4 
--Sample packet capture explaining such a flow:
+
+1.Any client-server architecture where the Server is configured to mitigate "Blind Reset Attack Using the SYN Bit" and sends "Challenge-ACK"
+
+
+2.As a response to client's SYN, the Server challenges by sending an ACK to confirm the loss of the previous connection and the request to start a new connection.
+
+
+3.This challenge ACK has acknowledgment number from previous connection and upon seeing the unexpected ACK, client sends a RST; thus tearing down TCP connection on the server also.
+
+
+4.RFC5961: https://tools.ietf.org/html/rfc5961#section-4
+
+
+5.Sample packet capture explaining such a flow:
 
 ![alt text](image.png)
 
@@ -20,8 +30,10 @@ Firewall dropping RST from Client after Server's "Challenge ACK" preventing clie
 
 
 **Cause**
--When ASA/FTD firewall is placed between such client and server, it doesn't understand such a flow by default.
--Firewall forwards the ACK received from server to the client however the RST from client is dropped by firewall.
+
+1.When ASA/FTD firewall is placed between such client and server, it doesn't understand such a flow by default.
+
+2.Firewall forwards the ACK received from server to the client however the RST from client is dropped by firewall.
 
 
 
@@ -244,6 +256,8 @@ Again, the reason that reset packet is not dropped is as this is valid, Sequence
  
 
 **Observations**
--While dropping the out of window RST is actually an intended behavior, it breaks the Challenge-ACK mechanism.
--Following enhancement is open https://bst.cisco.com/bugsearch/bug/CSCwj61793?rfs=qvred
+
+1.While dropping the out of window RST is actually an intended behavior, it breaks the Challenge-ACK mechanism.
+
+2.Following enhancement is open https://bst.cisco.com/bugsearch/bug/CSCwj61793?rfs=qvred
 
