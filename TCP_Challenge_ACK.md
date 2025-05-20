@@ -205,7 +205,7 @@ ciscoasa(config-pmap-c)#
 
 Pcaps are attached to article
 
-*** Notice that there are two connections which are created, first one is below
+**Notice that there are two connections which are created, first one is below
 
  May 18 2025 08:14:55: %ASA-6-302013: Built inbound TCP connection 207860548 for inside:10.117.142.19/42098 (10.117.142.19/42098) to dmz:192.168.198.28/443 (192.168.198.28/443)
 
@@ -251,7 +251,7 @@ reset is sent by client
 
 May 18 2025 08:15:06: %ASA-6-302014: Teardown TCP connection 207860570 for inside:10.117.142.19/42098 to dmz:192.168.198.28/443 duration 0:00:02 bytes 0 TCP Reset-O from inside
 
-Again, the reason that reset packet is not dropped is as this is valid, Sequence number: 3380905555 of reset is greater than initial sequence number 2514567835 of connection. ***
+Again, the reason that reset packet is not dropped is as this is valid, Sequence number: 3380905555 of reset is greater than initial sequence number 2514567835 of connection.**
 
  
 
